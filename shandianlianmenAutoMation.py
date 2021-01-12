@@ -17,7 +17,6 @@ password = 'cjhmatlab1208'
 
 try:
     #打开浏览器
-    #browser.get('https://www.baidu.com/')
     browser.get('http://bbs.sdbeta.com/')
 
     #将浏览器最小化显示
