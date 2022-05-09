@@ -17,7 +17,13 @@ password = 'cjhmatlab1208'
 
 try:
     #打开浏览器
-    browser.get('http://bbs.sdbeta.com/')
+    try:
+        browser.get('http://bbs.sdbeta.com/')
+        print("打开浏览器成功")
+        print("----------------")
+    except:
+        print("打开浏览器失败，请检查驱动是否与浏览器版本一致")
+        print("----------------")
 
     #将浏览器最小化显示
     #browser.minimize_window() 
