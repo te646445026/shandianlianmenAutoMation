@@ -71,8 +71,8 @@ try:
     inputWord.send_keys(Word)
     
     # #点击发布
-    # time.sleep(2)
-    # button = browser.find_element_by_id('weibo_submit').click()
+    time.sleep(2)
+    button = browser.find_element_by_id('weibo_submit').click()
     
     time.sleep(2)
     #点击帖子
