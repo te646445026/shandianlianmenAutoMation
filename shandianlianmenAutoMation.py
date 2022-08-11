@@ -5,12 +5,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+
 
 #get直接返回，不再等待界面加载完成
 desired_capabilities = DesiredCapabilities.EDGE
 desired_capabilities["pageLoadStrategy"] = "none"
 
-browser = webdriver.Edge(executable_path="C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedgedriver.exe")
+browser = webdriver.Edge(EdgeChromiumDriverManager().install())
 username = 'te646445026'
 password = 'cjhmatlab1208'
 
