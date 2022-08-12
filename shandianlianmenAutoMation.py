@@ -13,6 +13,7 @@ desired_capabilities = DesiredCapabilities.EDGE
 desired_capabilities["pageLoadStrategy"] = "none"
 
 browser = webdriver.Edge(EdgeChromiumDriverManager().install())
+#browser = webdriver.Edge(executable_path="C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedgedriver.exe")
 username = 'te646445026'
 password = 'cjhmatlab1208'
 
@@ -33,33 +34,33 @@ try:
     time.sleep(5)
     
     #找到用户框，输入账号
-    #inputName = wait.until(EC.presence_of_element_located((By.ID,'nav_pwuser')))
-    inputName = browser.find_element_by_id('nav_pwuser')
+    #inputName = WebDriverWait.until(EC.presence_of_element_located((By.ID,'nav_pwuser')))
+    inputName = browser.find_element(By.ID,'nav_pwuser')
     inputName.send_keys(username)
     
     
     #找到密码框，输入密码
     #inputPassword = wait.until(EC.presence_of_element_located((By.ID,'showpwd')))
-    inputPassword = browser.find_element_by_id('showpwd')
+    inputPassword = browser.find_element(By.ID,'showpwd')
     inputPassword.send_keys(password)
     
     #找到登录按钮，点击
     #button = wait.until(EC.presence_of_element_located((By.NAME,'head_login')))
-    button  = browser.find_element_by_name('head_login')
+    button  = browser.find_element(By.NAME,'head_login')
     button.click()
     
     time.sleep(2)
     
     #找到每日打卡按钮，点击进入打卡页面
     #button = wait.until(EC.presence_of_element_located((By.NAME,'head_login')))
-    button  = browser.find_element_by_css_selector('#nav_key_up_138').click()
+    button  = browser.find_element(By.CSS_SELECTOR,'#nav_key_up_138').click()
     
     time.sleep(2)
     
     try:
         #点击打卡
         #button = browser.find_element_by_class_name('card fr card_old').click()
-        button = browser.find_element_by_id('punch').click()
+        button = browser.find_element(By.ID,'punch').click()
         
         time.sleep(2)
         print('签到成功')
@@ -68,25 +69,25 @@ try:
         
     
     #找到每日签到，输入内容：
-    inputWord = browser.find_element_by_id('weibo_content')
+    inputWord = browser.find_element(By.ID,'weibo_content')
     Word = input('输入你想说的：')
     inputWord.send_keys(Word)
     
     # #点击发布
     time.sleep(2)
-    button = browser.find_element_by_id('weibo_submit').click()
+    button = browser.find_element(By.ID,'weibo_submit').click()
     
     time.sleep(2)
     #点击帖子
-    button = browser.find_element_by_css_selector('li#app_article [href]').click()
+    button = browser.find_element(By.CSS_SELECTOR,'li#app_article [href]').click()
 
     time.sleep(2)
     #点击我的回复
-    button = browser.find_element_by_id('a_post').click()
+    button = browser.find_element(By.ID,'a_post').click()
 
     time.sleep(2)
     #点击要回复的帖子
-    button = browser.find_element_by_css_selector('tr.tr3>td.f14>a.s5').click()
+    button = browser.find_element(By.CSS_SELECTOR,'tr.tr3>td.f14>a.s5').click()
 
     try:                                                    
         time.sleep(5)
@@ -96,13 +97,13 @@ try:
 
         #开始打卡
         time.sleep(2)
-        inputWord = browser.find_element_by_css_selector('textarea#textarea')
+        inputWord = browser.find_element(By.CSS_SELECTOR,'textarea#textarea')
         Word = '坚持打卡，坚持坚持'
         inputWord.send_keys(Word)
 
         #点击发布
         time.sleep(2)
-        button = browser.find_element_by_css_selector('button[name=Submit]').click()
+        button = browser.find_element(By.CSS_SELECTOR,'button[name=Submit]').click()
 
         print('回复成功')
     except :
@@ -111,11 +112,11 @@ try:
     
     #获取最新积分情况
     time.sleep(2)
-    text = browser.find_element_by_css_selector('p:nth-child(2)>a:nth-child(1)')
+    text = browser.find_element(By.CSS_SELECTOR,'p:nth-child(2)>a:nth-child(1)')
     print("我的电魂数量：",text.text)
-    text = browser.find_element_by_css_selector('p:nth-child(2)>a:nth-child(2)')
+    text = browser.find_element(By.CSS_SELECTOR,'p:nth-child(2)>a:nth-child(2)')
     print("我的威望数量：",text.text)
-    text = browser.find_element_by_css_selector('p:nth-child(2)>a:nth-child(3)')
+    text = browser.find_element(By.CSS_SELECTOR,'p:nth-child(2)>a:nth-child(3)')
     print("我的成员组为：",text.text)
 
 
