@@ -93,7 +93,7 @@ try:
         time.sleep(5)
         #跳转到新页面
         handles = browser.window_handles
-        browser.switch_to_window(handles[-1])
+        browser.switch_to.window(handles[-1])
 
         #开始打卡
         time.sleep(2)
